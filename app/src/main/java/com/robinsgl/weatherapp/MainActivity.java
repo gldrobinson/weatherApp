@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     Button findWeatherButton;
     EditText citySearch;
     TextView cityHeader;
+    TextView tempText;
+    TextView descriptionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         findWeatherButton = findViewById(R.id.search_button);
         citySearch = findViewById(R.id.city_search_edit_text);
         cityHeader = findViewById(R.id.city_header_text_view);
+        tempText = findViewById(R.id.temp_text_view);
+        descriptionText = findViewById(R.id.description_text_view);
 
         findWeatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
