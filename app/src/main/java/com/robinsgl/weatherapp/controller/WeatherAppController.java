@@ -3,26 +3,39 @@ package com.robinsgl.weatherapp.controller;
 import android.app.Application;
 import android.content.Context;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.robinsgl.weatherapp.network.Api;
 import com.robinsgl.weatherapp.network.WeatherApi;
 
 public class WeatherAppController extends Application {
-    private WeatherApi weatherApi;
+    private static WeatherAppController instance;
+    private RequestQueue requestQueue;
 
-    private static WeatherAppController get(Context context) {
-        return (WeatherAppController) context.getApplicationContext();
-    }
-
-    private static WeatherAppController create(Context context) {
-        return WeatherAppController.get(context);
-    }
-
-    public WeatherApi getWeatherApi() {
-        if (weatherApi == null) {
-            weatherApi = Api.create();
+    public static synchronized WeatherAppController getInstance() {
+        if (instance == null) {
+            instance = new WeatherAppController();
         }
-
-        return weatherApi;
+        return instance;
     }
+
+    public RequestQueue getRequestQueue() {
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+        return requestQueue;
+    }
+
+    public <T> void addToRequestQueue(Request<T> req) {
+        getRequestQueue().add(req);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        instance = this;
+    }
+
 
 }
