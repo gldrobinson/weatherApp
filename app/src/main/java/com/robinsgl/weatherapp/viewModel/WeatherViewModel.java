@@ -36,6 +36,7 @@ public class WeatherViewModel extends ViewModel {
 
                     weatherInfo.setMain(jsonObjectWeather.getString("main"));
                     weatherInfo.setDescription(jsonObjectWeather.getString("description"));
+                    weatherInfo.setId(jsonObjectWeather.getInt("id"));
 
                     JSONObject jsonObjectMain = response.getJSONObject("main");
 
