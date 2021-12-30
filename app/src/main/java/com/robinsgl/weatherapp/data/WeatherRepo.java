@@ -14,37 +14,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class WeatherRepo {
-    private WeatherModel weather;
 
-    public WeatherModel getWeather(String cityName, OnWeatherResponse callback) {
+    public void getWeather(String cityName, OnWeatherResponse callback) {
         String url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName +
                 "&appid=52d31a4b583f33bfd74b2557fe4e7d20";
-        WeatherModel weatherModel = new WeatherModel();
-        WeatherInfo weatherInfo = new WeatherInfo();
-        WeatherMain weatherMain = new WeatherMain();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
             try {
-                JSONArray jsonArrayWeather = response.getJSONArray("weather");
-                JSONObject jsonObjectWeather = jsonArrayWeather.getJSONObject(0);
-
-                weatherInfo.setMain(jsonObjectWeather.getString("main"));
-                weatherInfo.setDescription(jsonObjectWeather.getString("description"));
-
-                JSONObject jsonObjectMain = response.getJSONObject("main");
-
-                weatherMain.setTemp(jsonObjectMain.getDouble("temp"));
-                weatherMain.setTemp_max(jsonObjectMain.getDouble("temp_max"));
-                weatherMain.setTemp_min(jsonObjectMain.getDouble("temp_min"));
-
-                weatherModel.setWeatherMain(weatherMain);
-                weatherModel.setWeatherInfo(weatherInfo);
-
                 if (callback != null) {
-                    callback.onWeatherReceived(weatherModel);
+                    callback.onWeatherReceived(response);
                 }
 
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 callback.onWeatherError(e);
             }
@@ -53,7 +34,6 @@ public class WeatherRepo {
         });
 
         WeatherAppController.getInstance().addToRequestQueue(jsonObjectRequest);
-        return weatherModel;
 
     }
 
