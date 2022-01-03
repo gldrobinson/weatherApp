@@ -1,12 +1,10 @@
-package com.robinsgl.weatherapp;
+package com.robinsgl.weatherapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -14,14 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.robinsgl.weatherapp.R;
 import com.robinsgl.weatherapp.viewModel.WeatherViewModel;
-
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
     TextView descriptionText;
     ImageView weatherIcon;
     TextView searchedCity;
-    TextView dateText;
-    TextView timeText;
 
 
     @Override
