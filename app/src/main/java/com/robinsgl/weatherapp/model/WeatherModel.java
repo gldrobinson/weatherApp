@@ -1,10 +1,5 @@
 package com.robinsgl.weatherapp.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.lang.reflect.Array;
-
 public class WeatherModel {
 
     private WeatherInfo weatherInfo;

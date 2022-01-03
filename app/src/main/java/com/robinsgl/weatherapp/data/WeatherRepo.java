@@ -5,13 +5,6 @@ import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.robinsgl.weatherapp.controller.WeatherAppController;
-import com.robinsgl.weatherapp.model.WeatherInfo;
-import com.robinsgl.weatherapp.model.WeatherMain;
-import com.robinsgl.weatherapp.model.WeatherModel;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class WeatherRepo {
 
