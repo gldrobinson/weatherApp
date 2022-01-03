@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
+
 
     <EditText
         android:id="@+id/city_search_edit_text"
-        android:layout_width="272dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="256dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="6dp"
+        android:backgroundTint="@color/button"
         android:ems="10"
         android:hint="Enter City here"
         android:inputType="textPersonName"
@@ -25,50 +28,25 @@
         android:id="@+id/search_button"
         android:layout_width="57dp"
         android:layout_height="58dp"
-        android:layout_marginStart="6dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/button"
         android:text="Go"
+        android:textColor="@color/background"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/city_search_edit_text"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:id="@+id/date_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Sunday 2nd January "
-        android:textSize="24sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_search_edit_text" />
-
-    <TextView
-        android:id="@+id/time_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="13:48"
-        android:textSize="38sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_text_view" />
-
     <ImageView
         android:id="@+id/weather_icon"
         android:layout_width="245dp"
         android:layout_height="270dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/city_searched_text_view"
         app:srcCompat="@drawable/heavycloud" />
 
     <TextView
@@ -77,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="14 ℃"
+        android:textColor="@color/textColor"
         android:textSize="56sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,8 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:capitalize="words"
+        android:capitalize="characters"
         android:text="Cloudly"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,14 +81,15 @@
         android:id="@+id/city_searched_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="56dp"
         android:capitalize="words"
         android:text="Manchester"
-        android:textSize="20sp"
+        android:textColor="@color/textColor"
+        android:textSize="34sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/city_search_edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
